@@ -48,5 +48,6 @@ export const BtnScreen = styled.button`
 `;
 
 export const Container = styled.div`
-  background-image: url(../assets/img/firstImg.jpg);
+  background-image: ${({ isTrue }) =>
+    isTrue ? require(Images[0].img) : "imagenes[1].img"};
 `;

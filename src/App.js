@@ -1,7 +1,13 @@
 import { useState } from "react";
 import "./App.css";
 import { Escena } from "./components/escena/Escena";
-import { Btn, ContainerBtn, HeaderScreen, BtnScreen } from "./styles/styled";
+import {
+  Btn,
+  ContainerBtn,
+  HeaderScreen,
+  BtnScreen,
+  Container,
+} from "./styles/styled";
 import Images from "./assests/img/Images";
 
 function App() {
@@ -27,7 +33,7 @@ function App() {
   };
 
   return (
-    <div>
+    <Container>
       {screen === false && (
         <HeaderScreen>
           <p>
@@ -45,26 +51,14 @@ function App() {
             <Btn onClick={nextSentence}>Siguiente</Btn>
           </ContainerBtn>
           <main isSelected={screen === false}>
-            <Escena
-              title="Nuestro héroe estaba flotando por el espacio sideral cuando a lo lejos divisó una nave espacial"
-              isSelected={contador === 1}
-            />
-            <Escena
-              title="Sentía curiosidad por el interior de la nave y se puso a inspeccionarla. Llegó a una sala con dos puertas."
-              isSelected={contador === 2}
-            />
-            <Escena
-              title="El héroe decidió atravesar la puerta que le llevaba a casa"
-              isSelected={contador === 3}
-            />
-            <Escena
-              title="Mientras tanto, otras heroes no tuvieron tanta suerte en su elección..."
-              isSelected={contador === 4}
-            />
+            <Escena title={Images[0].title} isSelected={contador === 1} />
+            <Escena title={Images[1].title} isSelected={contador === 2} />
+            <Escena title={Images[2].title} isSelected={contador === 3} />
+            <Escena title={Images[3].title} isSelected={contador === 4} />
           </main>
         </div>
       )}
-    </div>
+    </Container>
   );
 }
 
