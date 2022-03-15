@@ -52,10 +52,9 @@ function App() {
             <Btn onClick={nextSentence}>Siguiente</Btn>
           </ContainerBtn>
           <main>
-            <Escena title={Images[0].title} isSelected={contador === 0} />
-            <Escena title={Images[1].title} isSelected={contador === 1} />
-            <Escena title={Images[2].title} isSelected={contador === 2} />
-            <Escena title={Images[3].title} isSelected={contador === 3} />
+            {Images.map((img, index) => (
+              <Escena title={img.title} isSelected={contador === index} />
+            ))}
           </main>
         </div>
       )}
