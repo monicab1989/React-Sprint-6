@@ -7,13 +7,15 @@ export const Sentence = styled.p`
   padding: 5px;
   text-align: center;
   margin: 20px;
+  font-size: 16px;
+  background-color: white;
 `;
 
 export const Btn = styled.button`
   padding: 10px;
   width: 50%;
   margin-top: 10px;
-  font-size: 18px;
+  font-size: 20px;
   cursor: pointer;
 `;
 
@@ -24,6 +26,7 @@ export const ChangeSentence = styled.p`
   text-align: center;
   margin: 20px;
   background-color: #ffc0cb;
+  font-size: 16px;
 `;
 
 export const ContainerBtn = styled.div`
@@ -31,7 +34,7 @@ export const ContainerBtn = styled.div`
 `;
 
 export const HeaderScreen = styled.header`
-  margin: 150px;
+  margin: 80px;
   padding: 10px;
   text-align: center;
   font-size: 40px;
@@ -48,6 +51,7 @@ export const BtnScreen = styled.button`
 `;
 
 export const Container = styled.div`
-  background-image: ${({ isTrue }) =>
-    isTrue ? require(Images[0].img) : "imagenes[1].img"};
+  background-image: url(${(props) => props.img});
+  height: 100vh;
+  background-repeat: no-repeat;
 `;

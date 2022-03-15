@@ -11,29 +11,30 @@ import {
 import Images from "./assests/img/Images";
 
 function App() {
-  const [contador, setContador] = useState(1);
+  const [contador, setContador] = useState(-1);
   const [screen, setScreen] = useState(false);
   //Funcion botón siguiente
   const nextSentence = () => {
     setContador(contador + 1);
-    if (contador === 4) {
+    if (contador === 3) {
       setContador(contador);
     }
   };
   //Función botón anterior
   const beforeSentence = () => {
     setContador(contador - 1);
-    if (contador === 1) {
+    if (contador === 0) {
       setContador(contador);
     }
   };
   //Función pantalla principal
-  const firtsScreen = () => {
+  const firstScreen = () => {
     setScreen(true);
+    setContador(0);
   };
 
   return (
-    <Container>
+    <Container img={contador === -1 ? "" : Images[contador].img}>
       {screen === false && (
         <HeaderScreen>
           <p>
@@ -41,7 +42,7 @@ function App() {
             poder ir avanzando y sumergirse en una historia, la cuál no querrá
             que acabe nunca...
           </p>
-          <BtnScreen onClick={firtsScreen}>Comenzar el tutorial</BtnScreen>
+          <BtnScreen onClick={firstScreen}>Comenzar el tutorial</BtnScreen>
         </HeaderScreen>
       )}
       {screen === true && (
@@ -50,11 +51,11 @@ function App() {
             <Btn onClick={beforeSentence}>Anterior</Btn>
             <Btn onClick={nextSentence}>Siguiente</Btn>
           </ContainerBtn>
-          <main isSelected={screen === false}>
-            <Escena title={Images[0].title} isSelected={contador === 1} />
-            <Escena title={Images[1].title} isSelected={contador === 2} />
-            <Escena title={Images[2].title} isSelected={contador === 3} />
-            <Escena title={Images[3].title} isSelected={contador === 4} />
+          <main>
+            <Escena title={Images[0].title} isSelected={contador === 0} />
+            <Escena title={Images[1].title} isSelected={contador === 1} />
+            <Escena title={Images[2].title} isSelected={contador === 2} />
+            <Escena title={Images[3].title} isSelected={contador === 3} />
           </main>
         </div>
       )}
